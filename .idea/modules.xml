@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Nivel 16/Arraylist/Arraylist.iml" filepath="$PROJECT_DIR$/Nivel 16/Arraylist/Arraylist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chess/Chess.iml" filepath="$PROJECT_DIR$/Chess/Chess.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CodeGym.iml" filepath="$PROJECT_DIR$/CodeGym.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Consencionario/Consencionario.iml" filepath="$PROJECT_DIR$/Consencionario/Consencionario.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ConsencionarioPt2/ConsencionarioPt2.iml" filepath="$PROJECT_DIR$/ConsencionarioPt2/ConsencionarioPt2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Escuela/Escuela.iml" filepath="$PROJECT_DIR$/Escuela/Escuela.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Nivel 16/GenericsAndStudents/GenericsAndStudents.iml" filepath="$PROJECT_DIR$/Nivel 16/GenericsAndStudents/GenericsAndStudents.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Nivel21/Manipulating/Manipulating.iml" filepath="$PROJECT_DIR$/Nivel21/Manipulating/Manipulating.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Nivel 16/Nivel 16.iml" filepath="$PROJECT_DIR$/Nivel 16/Nivel 16.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Nivel 17/Nivel 17.iml" filepath="$PROJECT_DIR$/Nivel 17/Nivel 17.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Nivel 18/Nivel 18.iml" filepath="$PROJECT_DIR$/Nivel 18/Nivel 18.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Nivel13/Nivel13.iml" filepath="$PROJECT_DIR$/Nivel13/Nivel13.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Nivel14/Nivel14.iml" filepath="$PROJECT_DIR$/Nivel14/Nivel14.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Nivel20/Nivel20.iml" filepath="$PROJECT_DIR$/Nivel20/Nivel20.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Nivel21/Nivel21.iml" filepath="$PROJECT_DIR$/Nivel21/Nivel21.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Nivel24/Nivel24.iml" filepath="$PROJECT_DIR$/Nivel24/Nivel24.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Nivel25/Nivel25.iml" filepath="$PROJECT_DIR$/Nivel25/Nivel25.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Nivel26/Nivel26.iml" filepath="$PROJECT_DIR$/Nivel26/Nivel26.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Practice/Practice.iml" filepath="$PROJECT_DIR$/Practice/Practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Nivel14/TrabajosDeVentana/TrabajosDeVentana.iml" filepath="$PROJECT_DIR$/Nivel14/TrabajosDeVentana/TrabajosDeVentana.iml" />
+    </modules>
+  </component>
+</project>
