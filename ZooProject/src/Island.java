@@ -23,21 +23,6 @@ public class Island {
         animal.setPosition(row, col);
     }
 
-    public void moveAnimal(int fromRow, int fromCol, int toRow, int toCol) {
-        if (isInBounds(toRow, toCol)) {
-            Animal movingAnimal = island[fromRow][fromCol];
-            Animal targetAnimal = island[toRow][toCol];
-
-            if (targetAnimal != null && movingAnimal != null) {
-                movingAnimal.eat(targetAnimal, movingAnimal);
-            }
-
-            island[toRow][toCol] = movingAnimal;
-            island[fromRow][fromCol] = null;
-            movingAnimal.setPosition(toRow, toCol);
-        }
-    }
-
     private boolean isInBounds(int row, int col) {
         return row >= 0 && row < rows && col >= 0 && col < cols;
     }

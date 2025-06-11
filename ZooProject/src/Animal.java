@@ -18,7 +18,7 @@ public abstract class Animal {
 
 
 
-    abstract void eat(Animal animal1, Animal animal2);
+    abstract void eat();
 
     abstract void move();
 

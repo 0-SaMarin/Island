@@ -5,9 +5,10 @@ public class Giraffe extends Animal{
     }
 
     @Override
-    void eat(int threat1, int threat2) {
+    void eat() {
 
     }
+
 
     @Override
     void move() {

@@ -5,10 +5,8 @@ public class Rabbit extends Animal{
     }
 
     @Override
-    void eat(int threat1, int threat2) {
-        if(threat1> threat2){
+    void eat() {
 
-        }
     }
 
     @Override
