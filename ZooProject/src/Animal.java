@@ -16,11 +16,9 @@ public abstract class Animal {
         this.isAlive = isAlive;
     }
 
-    abstract void eat();
+
 
     abstract void eat(Animal animal1, Animal animal2);
-
-    abstract void eat(int threat1, int threat2);
 
     abstract void move();
 

@@ -29,11 +29,11 @@ public class Island {
             Animal targetAnimal = island[toRow][toCol];
 
             if (targetAnimal != null && movingAnimal != null) {
-                movingAnimal.eat(targetAnimal);
+                movingAnimal.eat(targetAnimal, movingAnimal);
             }
 
-            grid[toRow][toCol] = movingAnimal;
-            grid[fromRow][fromCol] = null;
+            island[toRow][toCol] = movingAnimal;
+            island[fromRow][fromCol] = null;
             movingAnimal.setPosition(toRow, toCol);
         }
     }
