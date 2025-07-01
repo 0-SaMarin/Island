@@ -5,7 +5,7 @@ public class Rabbit extends Animal{
     }
 
     @Override
-    void eat() {
+    void eat(Object object  ) {
 
     }
 
@@ -18,4 +18,6 @@ public class Rabbit extends Animal{
     void reproduce() {
 
     }
+
+
 }

@@ -4,8 +4,9 @@ public class Giraffe extends Animal{
         super(threat, weight, classification, hunger, isAlive);
     }
 
+
     @Override
-    void eat() {
+    void eat(Object object) {
 
     }
 

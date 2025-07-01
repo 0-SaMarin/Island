@@ -5,7 +5,7 @@ public class Germanshepard extends Animal{
     }
 
     @Override
-    void eat() {
+    void eat(Object object) {
 
     }
 

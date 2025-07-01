@@ -6,7 +6,7 @@ public abstract class Animal {
     private int threat;
     private String classification;
     private int energy;
-    private boolean isAlive;
+    protected boolean isAlive;
 
     public Animal(int threat, int weight, String classification, int energy, boolean isAlive) {
         this.threat = threat;
@@ -18,7 +18,7 @@ public abstract class Animal {
 
 
 
-    abstract void eat();
+    abstract void eat(Object object);
 
     abstract void move();
 
