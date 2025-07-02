@@ -1,3 +1,6 @@
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Giraffe extends Animal{
 
     public Giraffe(int threat, int weight, String classification, int hunger, boolean isAlive,int maxDistance) {
@@ -17,7 +20,19 @@ public class Giraffe extends Animal{
     }
 
     @Override
-    void reproduce() {
+    public void reproduce(List<Animal> cellAnimals) {
+        long sameSpeciesCount = cellAnimals.stream()
+                .filter(a -> a instanceof Giraffe && a.isAlive())
+                .count();
+
+        if (sameSpeciesCount >= 2) {
+            if (ThreadLocalRandom.current().nextInt(100) < 30) {
+                Giraffe baby = new Giraffe();
+                baby.setPosition(getRow(), getCol());
+                cellAnimals.add(baby);
+                Island.addAnimal(baby);
+            }
+        }
 
     }
 }

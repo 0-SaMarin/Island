@@ -4,10 +4,10 @@ import java.util.List;
 
 public class Island {
 
-    private List<Animal> [][] island;
+    private static List<Animal> [][] island;
     private int rows;
     private int cols;
-    private List<Animal> allAnimals;
+    private static List<Animal> allAnimals;
     private Plant[][] plants;
 
 
@@ -25,10 +25,8 @@ public class Island {
         }
     }
 
-    public void addAnimal(Animal animal, int row, int col) {
+    public static void addAnimal(Animal animal) {
         allAnimals.add(animal);
-        island[row][col].add(animal);
-        animal.setPosition(row, col);
     }
 
     public boolean isCellEmpty(int row, int col) {

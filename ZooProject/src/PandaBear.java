@@ -1,3 +1,6 @@
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
+
 public  class PandaBear extends Animal{
 
     public PandaBear(int threat, int weight, String classification, int hunger, boolean isAlive, int maxDistance) {
@@ -16,7 +19,17 @@ public  class PandaBear extends Animal{
     }
 
     @Override
-    void reproduce() {
+    public void reproduce(List<Animal> cellAnimals) {
+        long sameSpeciesCount = cellAnimals.stream()
+                .filter(a -> a instanceof PandaBear && a.isAlive())
+                .count();
 
-    }
+        if (sameSpeciesCount >= 2) {
+            if (ThreadLocalRandom.current().nextInt(100) < 30) {
+                PandaBear baby = new PandaBear();
+                baby.setPosition(getRow(), getCol());
+                cellAnimals.add(baby);
+                Island.addAnimal(baby);
+            }
+        }
 }

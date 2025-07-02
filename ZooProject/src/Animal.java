@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public abstract class Animal {
@@ -42,7 +43,7 @@ public abstract class Animal {
         island.moveAnimal(this, row, col, newRow, newCol);
     }
 
-    abstract void reproduce();
+    public abstract void reproduce(List<Animal> cellAnimals);
 
     public int getCol() {
         return col;

@@ -1,3 +1,6 @@
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Germanshepard extends Animal{
 
     public Germanshepard(int threat, int weight, String classification, int hunger, boolean isAlive, int maxDistance) {
@@ -22,7 +25,18 @@ public class Germanshepard extends Animal{
     }
 
     @Override
-    void reproduce() {
+    public void reproduce(List<Animal> cellAnimals) {
+        long sameSpeciesCount = cellAnimals.stream()
+                .filter(a -> a instanceof Germanshepard && a.isAlive())
+                .count();
 
+        if (sameSpeciesCount >= 2) {
+            if (ThreadLocalRandom.current().nextInt(100) < 30) { // 30% chance
+                Germanshepard puppy = new Germanshepard();
+                puppy.setPosition(getRow(), getCol());
+                cellAnimals.add(puppy);
+                Island.addAnimal(puppy);
+            }
+        }
     }
 }

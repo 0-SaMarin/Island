@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Wolf extends Animal{
@@ -25,7 +26,17 @@ public class Wolf extends Animal{
     }
 
     @Override
-    void reproduce() {
+    public void reproduce(List<Animal> cellAnimals) {
+        long sameSpeciesCount = cellAnimals.stream()
+                .filter(a -> a instanceof Wolf && a.isAlive())
+                .count();
 
-    }
+        if (sameSpeciesCount >= 2) {
+            if (ThreadLocalRandom.current().nextInt(100) < 30) {
+                Wolf cub = new Wolf();
+                cub.setPosition(getRow(), getCol());
+                cellAnimals.add(cub);
+                Island.addAnimal(cub);
+            }
+        }
 }
