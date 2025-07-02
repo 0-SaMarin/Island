@@ -1,3 +1,5 @@
+import java.util.concurrent.ThreadLocalRandom;
+
 public abstract class Animal {
 
     protected int row;
@@ -7,8 +9,9 @@ public abstract class Animal {
     private String classification;
     private int energy;
     protected boolean isAlive;
+    private int maxDistance;
 
-    public Animal(int threat, int weight, String classification, int energy, boolean isAlive) {
+    public Animal(int threat, int weight, String classification, int energy, boolean isAlive, int maxDistance) {
         this.threat = threat;
         this.weight = weight;
         this.classification = classification;
@@ -16,13 +19,54 @@ public abstract class Animal {
         this.isAlive = isAlive;
     }
 
+    public int getMaxDistance() {
+        return maxDistance;
+    }
 
+    public void setMaxDistance(int maxDistance) {
+        this.maxDistance = maxDistance;
+    }
 
     abstract void eat(Object object);
 
-    abstract void move();
+    public final void move(Island island) {
+        int max = getMaxDistance();
+        if (max == 0) return;
+
+        int dRow = ThreadLocalRandom.current().nextInt(-max, max + 1);
+        int dCol = ThreadLocalRandom.current().nextInt(-max, max + 1);
+
+        int newRow = Math.max(0, Math.min(island.getRows() - 1, row + dRow));
+        int newCol = Math.max(0, Math.min(island.getCols() - 1, col + dCol));
+
+        island.moveAnimal(this, row, col, newRow, newCol);
+    }
 
     abstract void reproduce();
+
+    public int getCol() {
+        return col;
+    }
+
+    public void setCol(int col) {
+        this.col = col;
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public boolean isAlive() {
+        return isAlive;
+    }
+
+    public void setAlive(boolean alive) {
+        isAlive = alive;
+    }
 
     public void setPosition(int row, int col) {
         this.row = row;

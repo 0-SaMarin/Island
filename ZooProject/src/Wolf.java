@@ -1,7 +1,9 @@
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Wolf extends Animal{
 
-    public Wolf(int threat, int weight, String classification, int hunger, boolean isAlive) {
-        super(threat, weight, classification, hunger, isAlive);
+    public Wolf(int threat, int weight, String classification, int hunger, boolean isAlive, int maxDistance) {
+        super(threat, weight, classification, hunger, isAlive, maxDistance);
     }
 
     @Override
@@ -12,13 +14,13 @@ public class Wolf extends Animal{
 
         Animal prey = (Animal) food;
 
-        if (!(prey.isAlive)){
-            System.out.println();
+        if (this.getThreat() > prey.getThreat()) {
+            System.out.println("El lobo se come a el/la " + prey.getClass());
+            setEnergy(getEnergy() + prey.getEnergy());
+            prey.setAlive(false);
+        } else {
+            System.out.println("el lobo no puede comerse a el/la " + prey.getClass());
         }
-    }
-
-    @Override
-    void move() {
 
     }
 
