@@ -3,8 +3,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Wolf extends Animal{
 
-    public Wolf(int threat, int weight, String classification, int hunger, boolean isAlive, int maxDistance) {
-        super(threat, weight, classification, hunger, isAlive, maxDistance);
+    public Wolf(int threat, int weight, String classification, int energy, boolean isAlive, int maxDistance) {
+        super(threat, weight, classification, energy, isAlive, maxDistance);
     }
 
     @Override
@@ -33,10 +33,11 @@ public class Wolf extends Animal{
 
         if (sameSpeciesCount >= 2) {
             if (ThreadLocalRandom.current().nextInt(100) < 30) {
-                Wolf cub = new Wolf();
+                Wolf cub = new Wolf(8, 5, "carnivore", 100, true, 3);
                 cub.setPosition(getRow(), getCol());
                 cellAnimals.add(cub);
                 Island.addAnimal(cub);
             }
         }
+    }
 }

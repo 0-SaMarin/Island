@@ -68,7 +68,7 @@ public class Island {
 
 
             synchronized (cellAnimals) {
-                animal.eat(cellAnimals, plant);
+                animal.eat(cellAnimals);
                 animal.reproduce(cellAnimals);
             }
 

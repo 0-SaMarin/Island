@@ -20,27 +20,18 @@ public abstract class Animal {
         this.isAlive = isAlive;
     }
 
-    public int getMaxDistance() {
-        return maxDistance;
-    }
-
-    public void setMaxDistance(int maxDistance) {
-        this.maxDistance = maxDistance;
-    }
-
     abstract void eat(Object object);
 
     public final void move(Island island) {
-        int max = getMaxDistance();
-        if (max == 0) return;
+        if (maxDistance != 0) {
+            int dRow = ThreadLocalRandom.current().nextInt(-maxDistance, maxDistance + 1);
+            int dCol = ThreadLocalRandom.current().nextInt(-maxDistance, maxDistance + 1);
 
-        int dRow = ThreadLocalRandom.current().nextInt(-max, max + 1);
-        int dCol = ThreadLocalRandom.current().nextInt(-max, max + 1);
+            int newRow = Math.max(0, Math.min(island.getRows() - 1, row + dRow));
+            int newCol = Math.max(0, Math.min(island.getCols() - 1, col + dCol));
 
-        int newRow = Math.max(0, Math.min(island.getRows() - 1, row + dRow));
-        int newCol = Math.max(0, Math.min(island.getCols() - 1, col + dCol));
-
-        island.moveAnimal(this, row, col, newRow, newCol);
+            island.moveAnimal(this, row, col, newRow, newCol);
+        }
     }
 
     public abstract void reproduce(List<Animal> cellAnimals);
@@ -104,6 +95,14 @@ public abstract class Animal {
 
     public void setEnergy(int energy) {
         this.energy = energy;
+    }
+
+    public int getMaxDistance() {
+        return maxDistance;
+    }
+
+    public void setMaxDistance(int maxDistance) {
+        this.maxDistance = maxDistance;
     }
 
 }

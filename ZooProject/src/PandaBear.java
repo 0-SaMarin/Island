@@ -3,8 +3,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public  class PandaBear extends Animal{
 
-    public PandaBear(int threat, int weight, String classification, int hunger, boolean isAlive, int maxDistance) {
-        super(threat, weight, classification, hunger, isAlive, maxDistance);
+    public PandaBear(int threat, int weight, String classification, int energy, boolean isAlive, int maxDistance) {
+        super(threat, weight, classification, energy, isAlive, maxDistance);
     }
 
     @Override
@@ -26,10 +26,11 @@ public  class PandaBear extends Animal{
 
         if (sameSpeciesCount >= 2) {
             if (ThreadLocalRandom.current().nextInt(100) < 30) {
-                PandaBear baby = new PandaBear();
+                PandaBear baby = new PandaBear(3, 9, "herbivore", 100, true, 1);
                 baby.setPosition(getRow(), getCol());
                 cellAnimals.add(baby);
                 Island.addAnimal(baby);
             }
         }
+    }
 }

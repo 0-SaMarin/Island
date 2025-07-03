@@ -3,8 +3,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Giraffe extends Animal{
 
-    public Giraffe(int threat, int weight, String classification, int hunger, boolean isAlive,int maxDistance) {
-        super(threat, weight, classification, hunger, isAlive,maxDistance);
+    public Giraffe(int threat, int weight, String classification, int energy, boolean isAlive,int maxDistance) {
+        super(threat, weight, classification, energy, isAlive,maxDistance);
     }
 
 
@@ -27,7 +27,7 @@ public class Giraffe extends Animal{
 
         if (sameSpeciesCount >= 2) {
             if (ThreadLocalRandom.current().nextInt(100) < 30) {
-                Giraffe baby = new Giraffe();
+                Giraffe baby = new Giraffe(6, 8,"herbivore", 100, true, 2);
                 baby.setPosition(getRow(), getCol());
                 cellAnimals.add(baby);
                 Island.addAnimal(baby);

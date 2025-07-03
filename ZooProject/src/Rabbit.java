@@ -4,7 +4,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Rabbit extends Animal{
 
     public Rabbit(int threat, int weight, String classification, int hunger, boolean isAlive, int maxDistance) {
-        super(threat, weight, classification, hunger, isAlive, maxDistance );
+        super(threat, weight, classification, hunger, isAlive, maxDistance);
     }
 
     @Override

@@ -3,8 +3,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Germanshepard extends Animal{
 
-    public Germanshepard(int threat, int weight, String classification, int hunger, boolean isAlive, int maxDistance) {
-        super(threat, weight, classification, hunger,isAlive,maxDistance );
+    public Germanshepard(int threat, int weight, String classification, int energy, boolean isAlive, int maxDistance) {
+        super(threat, weight, classification, energy,isAlive,maxDistance );
     }
 
     @Override
@@ -32,7 +32,7 @@ public class Germanshepard extends Animal{
 
         if (sameSpeciesCount >= 2) {
             if (ThreadLocalRandom.current().nextInt(100) < 30) { // 30% chance
-                Germanshepard puppy = new Germanshepard();
+                Germanshepard puppy = new Germanshepard(8, 6, "carnivore", 100, true, 3);
                 puppy.setPosition(getRow(), getCol());
                 cellAnimals.add(puppy);
                 Island.addAnimal(puppy);
