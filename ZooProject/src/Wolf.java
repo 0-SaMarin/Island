@@ -16,11 +16,11 @@ public class Wolf extends Animal{
         Animal prey = (Animal) food;
 
         if (this.getThreat() > prey.getThreat()) {
-            System.out.println("El lobo se come a el/la " + prey.getClass());
+            System.out.println("El lobo se come a el/la " + prey.getClass().getSimpleName());
             setEnergy(getEnergy() + prey.getEnergy());
             prey.setAlive(false);
         } else {
-            System.out.println("el lobo no puede comerse a el/la " + prey.getClass());
+            System.out.println("el lobo no puede comerse a el/la " + prey.getClass().getSimpleName());
         }
 
     }

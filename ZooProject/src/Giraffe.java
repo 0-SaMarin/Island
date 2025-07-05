@@ -27,7 +27,7 @@ public class Giraffe extends Animal{
 
         if (sameSpeciesCount >= 2) {
             if (ThreadLocalRandom.current().nextInt(100) < 30) {
-                Giraffe baby = new Giraffe(6, 8,"herbivore", 100, true, 2);
+                Giraffe baby = new Giraffe(2, 8,"herbivore", 100, true, 2);
                 baby.setPosition(getRow(), getCol());
                 cellAnimals.add(baby);
                 Island.addAnimal(baby);

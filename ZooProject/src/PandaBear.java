@@ -26,7 +26,7 @@ public  class PandaBear extends Animal{
 
         if (sameSpeciesCount >= 2) {
             if (ThreadLocalRandom.current().nextInt(100) < 30) {
-                PandaBear baby = new PandaBear(3, 9, "herbivore", 100, true, 1);
+                PandaBear baby = new PandaBear(7, 9, "herbivore", 100, true, 1);
                 baby.setPosition(getRow(), getCol());
                 cellAnimals.add(baby);
                 Island.addAnimal(baby);

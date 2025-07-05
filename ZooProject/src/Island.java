@@ -1,17 +1,18 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Island {
 
-    private static List<Animal> [][] island;
-    private int rows;
-    private int cols;
-    private static List<Animal> allAnimals;
+    private List<Animal> [][] island;
+    private final int rows;
+    private final int cols;
+    private List<Animal> allAnimals;
     private Plant[][] plants;
 
 
-    public Island(int row, int coll){
+    public Island(int rows, int cols){
         this.rows = rows;
         this.cols = cols;
         this.island =  new ArrayList[rows][cols];
@@ -25,17 +26,20 @@ public class Island {
         }
     }
 
-    public static void addAnimal(Animal animal) {
+    public void addAnimal(Animal animal) {
         allAnimals.add(animal);
     }
 
     public boolean isCellEmpty(int row, int col) {
-        return island[row][col] == null;
+        return island[row][col].isEmpty();
     }
 
     public void placeAnimal(Animal animal, int row, int col) {
-        island[row][col] = Collections.singletonList(animal);
-        animal.setPosition(row, col);
+        if (!isInBounds(row, col)) {
+            island[row][col].add(animal);
+            animal.setPosition(row, col);
+            allAnimals.add(animal);
+        }
     }
 
     private boolean isInBounds(int row, int col) {
@@ -54,6 +58,49 @@ public class Island {
         }
 
         animal.setPosition(toRow, toCol);
+    }
+
+    public void populateIsland(int count){
+        for (int i = 0; i < count; i++) {
+            Animal animal = createRandomAnimal();
+
+            int row = ThreadLocalRandom.current().nextInt(rows);
+            int col = ThreadLocalRandom.current().nextInt(cols);
+
+            placeAnimal(animal,row, col);
+
+            System.out.println("Posicionado " + animal.getClass().getSimpleName() +
+                    " at [" + row + "," + col + "]");
+        }
+    }
+
+    public void populatePlants(int count) {
+        for (int i = 0; i < count; i++) {
+            int row = ThreadLocalRandom.current().nextInt(rows);
+            int col = ThreadLocalRandom.current().nextInt(cols);
+
+            if (plants[row][col] == null) {
+                plants[row][col] = new Plant(20);
+            } else {
+
+                i--;
+            }
+        }
+    }
+
+    private Animal createRandomAnimal() {
+        int roll = ThreadLocalRandom.current().nextInt(5);
+        return switch (roll) {
+            case 0 -> new Rabbit(1,3,"hervibore", 100, true, 1);
+            case 1 -> new Giraffe(2, 8,"herbivore", 100, true, 2);
+            case 2 -> new PandaBear(7, 9, "herbivore", 100, true, 1);
+            case 3 -> new Tiger(8, 6, "carnivore", 100, true, 3);
+            default -> new Wolf(8, 5, "carnivore", 100, true, 3);
+        };
+    }
+
+    public Plant getPlantAt(int row, int col) {
+        return plants[row][col];
     }
 
     public void simulateStep() {
