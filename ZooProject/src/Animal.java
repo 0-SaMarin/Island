@@ -2,7 +2,7 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public abstract class Animal {
-
+    private transient  Plant currentPlant;
     protected int row;
     protected int col;
     private int weight;
@@ -18,9 +18,10 @@ public abstract class Animal {
         this.classification = classification;
         this.energy = energy;
         this.isAlive = isAlive;
+        this.maxDistance = maxDistance;
     }
 
-    abstract void eat(Object object);
+    abstract void eat(List<Animal> cellAnimals, Island island);
 
     public final void move(Island island) {
         if (maxDistance != 0) {
@@ -34,7 +35,15 @@ public abstract class Animal {
         }
     }
 
-    public abstract void reproduce(List<Animal> cellAnimals);
+    public abstract void reproduce(List<Animal> cellAnimals, Island island);
+
+    public Plant getCurrentPlant() {
+        return currentPlant;
+    }
+
+    public void setCurrentPlant(Plant currentPlant) {
+        this.currentPlant = currentPlant;
+    }
 
     public int getCol() {
         return col;

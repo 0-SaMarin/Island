@@ -1,9 +1,12 @@
-public class Plant implements Food {
+public class Plant {
     private int energy;
+    int row;
+    int col;
 
-    public Plant (int energy){
+    public Plant (int energy, int row, int col){
         this.energy = energy;
-
+        this.row = row;
+        this.col = col;
     }
 
     public int getEnergy() {
@@ -14,10 +17,19 @@ public class Plant implements Food {
         this.energy = energy;
     }
 
+    public int getCol() {
+        return col;
+    }
 
+    public void setCol(int col) {
+        this.col = col;
+    }
 
-    @Override
-    public int getNutrition() {
-        return this.energy;
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
     }
 }

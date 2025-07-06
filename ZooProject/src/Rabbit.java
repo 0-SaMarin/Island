@@ -1,25 +1,26 @@
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Rabbit extends Animal{
+public class Rabbit extends Animal implements Herbivore{
 
     public Rabbit(int threat, int weight, String classification, int hunger, boolean isAlive, int maxDistance) {
         super(threat, weight, classification, hunger, isAlive, maxDistance);
     }
 
     @Override
-    void eat(Object food) {
-        if (!(food instanceof Plant)) {
-            System.out.println("el conejo solo puede comer plantas");
+    void eat(List<Animal> cellAnimals, Island island) {
+        Plant plant = island.getPlantAt(getRow(), getCol());
+        if (plant != null) {
+            System.out.println(getClass().getSimpleName() + " Come una planta en [" + getRow() + "," + getCol() + "]");
+            setEnergy(getEnergy() + plant.getEnergy());
+            island.removePlantAt(getRow(), getCol());
+        } else {
+            System.out.println(getClass().getSimpleName() + " No encontro nada en [" + getRow() + "," + getCol() + "]");
         }
-
-        Plant plant = (Plant) food;
-        System.out.println("el conejo comio la planta");
-        setEnergy(getEnergy() + plant.getNutrition());
     }
 
     @Override
-    public void reproduce(List<Animal> cellAnimals) {
+    public void reproduce(List<Animal> cellAnimals, Island island) {
         long sameSpeciesCount = cellAnimals.stream()
                 .filter(a -> a instanceof Rabbit && a.isAlive())
                 .count();

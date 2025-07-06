@@ -1,10 +1,9 @@
-import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Wolf extends Animal implements Carnivore{
+public class Lion extends Animal implements Carnivore{
 
-    public Wolf(int threat, int weight, String classification, int energy, boolean isAlive, int maxDistance) {
+    public Lion(int threat, int weight, String classification, int energy, boolean isAlive, int maxDistance) {
         super(threat, weight, classification, energy, isAlive, maxDistance);
     }
 
@@ -15,30 +14,30 @@ public class Wolf extends Animal implements Carnivore{
         for (Animal prey : cellAnimals) {
             if (prey != this && prey.isAlive()) {
                 if (this.getThreat() > prey.getThreat()) {
-                    System.out.println("El lobo se come a el/la " + prey.getClass().getSimpleName());
+                    System.out.println("El leon se come a el/la " + prey.getClass().getSimpleName());
                     setEnergy(getEnergy() + prey.getEnergy());
                     prey.setAlive(false);
                     ate = true;
                     break;
                 } else {
-                    System.out.println("El lobo no puede comerse a el/la " + prey.getClass().getSimpleName());
+                    System.out.println("El leon no puede comerse a el/la " + prey.getClass().getSimpleName());
                 }
             }
         }
         if(!ate){
-            System.out.println("El lobo no encontró presa adecuada para comer.");
+            System.out.println("El leon no encontró presa adecuada para comer.");
         }
     }
 
     @Override
     public void reproduce(List<Animal> cellAnimals, Island island) {
         long sameSpeciesCount = cellAnimals.stream()
-                .filter(a -> a instanceof Wolf && a.isAlive())
+                .filter(a -> a instanceof Lion && a.isAlive())
                 .count();
 
         if (sameSpeciesCount >= 2) {
             if (ThreadLocalRandom.current().nextInt(100) < 30) {
-                Wolf cub = new Wolf(8, 5, "carnivore", 100, true, 3);
+                Lion cub = new Lion(8, 5, "carnivore", 100, true, 3);
                 cub.setPosition(getRow(), getCol());
                 cellAnimals.add(cub);
                 Island.addAnimal(cub);
